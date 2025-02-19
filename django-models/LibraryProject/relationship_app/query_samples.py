@@ -23,7 +23,7 @@ def get_librarian_for_library(library_name):
     try:
 
         library = Library.objects.get(name=library_name)
-        librarian = Librarian.objects.get(library=library)s
+        librarian = Librarian.objects.get(library=library)
         return library.librarian.name if library.librarian else "No librarian assigned"
     except Library.DoesNotExist:
         return f"No library found with name '{library_name}'"

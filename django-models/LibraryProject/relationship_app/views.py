@@ -14,8 +14,9 @@ from .models import Library
 class BookDetailView(DetailView):
       model = Book
       template_name = 'relationship_app/list_books.html'
+      context_object_name = 'book'
 
-return render (request, 'relationship_app/library_detail.html', "library",)
+##return render (request, 'relationship_app/library_detail.html', "library",)
 
 
 
