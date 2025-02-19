@@ -11,7 +11,7 @@ from .models import Book
 
 class BookDetailView(DetailView):
       model = Book
-      template_name = 'books/book_detail.html'
+      template_name = 'books/list_books.html'
 
 
 
