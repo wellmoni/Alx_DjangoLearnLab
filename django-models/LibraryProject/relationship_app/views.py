@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 def book_list(request):
-    books = books.objects.all()
-    book_info = "\n".join([f"{book.title} by {book.author}" for book in books])
-    return HttpResponse(f"<pre>{book_info}</pre>")
+    books = Book.objects.all()
+    
+   ## book_info = "\n".join([f"{book.title} by {book.author}" for book in books])
+    return render(request, 'relationship_app/list_books.html', {'books': books})
 
 # Create your views here.
