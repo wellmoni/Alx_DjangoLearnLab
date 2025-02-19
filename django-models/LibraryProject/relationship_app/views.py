@@ -8,10 +8,13 @@ def book_list(request):
 
 from django.views.generic import DetailView
 from .models import Book
+from .models import Library
 
 class BookDetailView(DetailView):
       model = Book
-      template_name = 'books/list_books.html'
+      template_name = 'relationship_app/list_books.html'
+
+return render (request, 'relationship_app/library_detail.html', "library",)
 
 
 
