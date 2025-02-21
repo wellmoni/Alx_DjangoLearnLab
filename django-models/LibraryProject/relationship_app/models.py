@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
@@ -21,17 +23,26 @@ class Library(models.Model):
     def __str__(self):
         return self.title
 
-   
-class Librarian(models.Model):
-    name = models.CharField(max_length=100)
-    library = models.OneToOneField(Library, on_delete=models.CASCADE )
+Role_choices = [
+    ('Admin', 'Admin'),
+    ('Librarian', 'Librarian'),
+    ('Member', 'Member'),
+]  
 
 class UserProfile(models.Model):
     user = models.OneToOneField ( on_delete=models.CASCADE)
-    role = models.CharField ('Admin','Librarian', 'Member')
+    role = models.CharField(max_length=10, choices=Role_choices, default='Member')
+
+
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
 
+
+
+
+class Librarian(models.Model):
+    name = models.CharField(max_length=100)
+    library = models.OneToOneField(Library, on_delete=models.CASCADE )
 # Create your models here.
