@@ -23,7 +23,7 @@ class BookDetailView(DetailView):
 
 ##return render (request, 'relationship_app/library_detail.html', "library",)
 class register(UserCreationForm):
-    form_class = UserCreationForm
+    form_class = UserCreationForm()
     success_url = reverse_lazy('login')
     template_name = 'relationship_app/register.html'
 
