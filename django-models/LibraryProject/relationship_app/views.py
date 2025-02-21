@@ -13,7 +13,8 @@ from .models import Library
 from .models import LibraryDetailView
 from django.contrib.auth.views import LoginView, LogoutView, RegisterView
 from django.urls import path 
-
+from django.contrib.auth import login, logout, register
+from django.contrib.auth.forms import UserCreationForm
 
 class BookDetailView(DetailView):
       model = Book
