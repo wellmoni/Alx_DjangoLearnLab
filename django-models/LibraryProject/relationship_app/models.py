@@ -33,6 +33,12 @@ class UserProfile(models.Model):
     user = models.OneToOneField ( on_delete=models.CASCADE)
     role = models.CharField(max_length=10, choices=Role_choices, default='Member')
 
+class Meta:
+    permissions =['can_add_book','add a book'
+                  'can_delete_book', 'delete a book'
+                  'can_change_book', 'change a book'
+]
+
 
 
 ##def create_user_profile(sender, instance, created, **kwargs):
