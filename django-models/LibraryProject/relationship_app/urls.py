@@ -28,7 +28,7 @@ urlpatterns = [
 ]
 
 urlpatterns = [
-    path('admin_view/', admin_view, name='admin_view'),
-    path('librarian_view/', librarian_view, name='librarian_view'),
-    path('member_view/', member_view, name='member_view'),
+    path('admin_view/', admin_view.as_view(template_name='admin.html'), name='admin_view'),
+    path('librarian_view/', librarian_view.as_view(template_name='registration_app/librarian.html'), name='librarian_view'),
+    path('member_view/', member_view.as_view(template_name='registration_app/member.html'), name='member_view'),
 ]
