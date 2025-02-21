@@ -11,13 +11,13 @@ def is_member(user):
 
 @user_passes_test(is_admin)
 def admin_view(request):
-    return render(request, 'relationship_app/admin.html', {'role': 'Admin'})
+    return render(request, 'relationship_app/admin_view.html', {'role': 'Admin'})
 
 @user_passes_test(is_librarian)
 def librarian_view(request):
-    return render(request, 'relationship_app/librarian.html', {'role': 'Librarian'})
+    return render(request, 'relationship_app/librarian_view.html', {'role': 'Librarian'})
 @user_passes_test(is_admin)
 
 def member_view(request):
-    return render(request, 'relationship_app/member.html', {'role': 'Member'})
+    return render(request, 'relationship_app/member_view.html', {'role': 'Member'})
 # Create your views here.
