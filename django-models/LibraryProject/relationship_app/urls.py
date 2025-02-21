@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from .views import add_book, edit_book, delete_book
 from .views import BookDetailView 
 from .views import list_books
 from .views import LibraryDetailView
