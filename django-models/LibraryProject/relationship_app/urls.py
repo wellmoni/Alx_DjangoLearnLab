@@ -21,5 +21,5 @@ from django.urls import path
 urlpatterns = [
     path('login/', LoginView.as_view(template_name='registration_app/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='registration_app/logout.html'), name='logout'),
-    path('register/', RegisterView.as_view(template_name='registration_app/register.html'), name='register')
+    path('register/', views.register(template_name='registration_app/register.html'), name='register')
 ]
