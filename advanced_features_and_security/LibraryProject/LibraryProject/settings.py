@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-AUTH_USER_MODEL = "student"
+AUTH_USER_MODEL = "bookshelf.CustomUser"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
