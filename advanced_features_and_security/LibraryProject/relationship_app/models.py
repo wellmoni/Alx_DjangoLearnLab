@@ -4,9 +4,9 @@ from django.shortcuts import render
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import AbstractUser
 
-class student(AbstractUser):
+class CustomUser(AbstractUser):
     date_of_birth = models.DateField()
-    profile_picture = models.ImageField()
+    profile_photo = models.ImageField()
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
