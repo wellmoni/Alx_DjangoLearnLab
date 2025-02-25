@@ -26,7 +26,8 @@ class BookDetailView(DetailView):
       template_name = 'relationship_app/list_books.html'
       context_object_name = 'book'
 
-
+class UserCreationForm():
+    template_name = relationship_app/register.html
 
 def is_admin(user):
     return user.userprofile.role =='Admin'
