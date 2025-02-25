@@ -10,6 +10,7 @@ def list_books(request):
     
    ## book_info = "\n".join([f"{book.title} by {book.author}" for book in books])
     return render(request, 'relationship_app/list_books.html', {'books': books})
+    return render (request, 'relationship_app/library_detail.html', "library",)
 
 from django.views.generic import DetailView
 from django.views.generic.detail import DetailView
@@ -22,6 +23,7 @@ class BookDetailView(DetailView):
       model = Book
       template_name = 'relationship_app/list_books.html'
       context_object_name = 'book'
+
 
 
 def is_admin(user):
