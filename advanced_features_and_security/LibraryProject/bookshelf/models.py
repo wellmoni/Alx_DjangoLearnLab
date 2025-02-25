@@ -21,4 +21,13 @@ class CustomUser(AbstractUser):
 class CustomUserManager(BaseUserManager):
     create_user = models.CharField(max_length=100)
     create_superuser = models.CharField(max_length= 200)
+
+
+class Meta:
+        permissions = [
+            ("can_view", "Can view documents"),
+            ("can_create", "Can create documents"),
+            ("can_edit", "Can edit documents"),
+            ("can_delete", "Can delete documents"),
+        ]
 # Create your models here.
