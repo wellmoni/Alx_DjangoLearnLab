@@ -27,4 +27,9 @@ urlpatterns = [
 
 urlpatterns = [
     path('books/', BookList.as_view(), name='book-list'),
+
+]
+
+urlpatterns = [
+    path('api/', include('api.urls')), 
 ]
