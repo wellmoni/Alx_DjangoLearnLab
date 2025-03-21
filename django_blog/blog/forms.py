@@ -9,8 +9,8 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ["username", "email", "password1", "password2"]
 
-
 from django import forms
+from taggit.forms import TagWidget
 from .models import Post
 
 class PostForm(forms.ModelForm):
@@ -28,3 +28,5 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
+class PostForm(forms.ModelForm):
+    tags = forms.CharField(widget=TagWidget(), required=False, help_text="Separate tags with commas")
