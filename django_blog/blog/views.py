@@ -143,4 +143,22 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return reverse_lazy('post_detail', kwargs={'post_id': self.object.post.id})
 
 
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Post
+
+def search_posts(request):
+    query = request.GET.get('q', '')  # Get the search query from the request
+    posts = Post.objects.none()  # Default empty result
+
+    if query:
+        posts = Post.objects.filter(
+            Q(title__icontains=query) | 
+            Q(content__icontains=query) | 
+            Q(tags__name__icontains=query)  # Search by tag name
+        ).distinct()  # Ensure unique results
+
+    return render(request, 'blog/search_results.html', {'posts': posts, 'query': query})
+
+
 # Create your views here.
